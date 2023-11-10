@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+
+  <div id="main">
+    <div id="page">
+        <div id="nav">
+            <div id="logo"></div>
+            <div id="links">
+                <a href="">HOME</a>
+                <a href="">ABOUT US</a>
+                <a href="">DETAILS</a>
+                <a href="">OUR BLOG</a>
+                <a href="">CONTACT</a>
+            </div>
+        </div>
+
+        <div id="square">
+            <h1>Upload your Skin image here to see your problem👇</h1>
+           <form action="/result" id="uploadpic" method="post" enctype="multipart/form-data">
+             <input type="file" name="file" id="fileinp" accept="image/*" onchange="loadFile(event)">
+             <input type="submit" value="upload">
+           </form>
+           <div id="dabba">
+             <img id="output" src="input.jpg" alt="">
+           </div>
+           <!-- <h4 id="capture">or capture image 👉 <a id="cam" href="/camera"><i class="ri-camera-line"></i></a></h4> -->
+        </div>
+
+        <footer>
+          <h1>𝐊𝐄𝐑𝐀𝐒 𝐂𝐑𝐄𝐖</h1>
+        </footer>
+
+
+
+    </div>
+</div>
+
+<script>
+        document.querySelector("#fileinp")
+  .addEventListener("change", function () {
+    document.querySelector("#dabba").style.display = "block"
+  })
+
+
+var loadFile = function (event) {
+  var output = document.getElementById('output');
+  output.src = URL.createObjectURL(event.target.files[0]);
+  output.onload = function () {
+    URL.revokeObjectURL(output.src) // free memory
+  }
+};
+
+
+</script>
+</body>
+</html>
